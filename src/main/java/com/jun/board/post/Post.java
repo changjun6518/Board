@@ -14,5 +14,7 @@ public class Post {
     @Column(nullable = false)
     private Long id;
 
+    private String title;
+
 
 }
