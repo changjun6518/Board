@@ -16,7 +16,12 @@ spring:
             scope:
               - email
               - profile
-
+  mvc:
+    static-path-pattern: "/static/**"
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
 #  jpa:
 #    hibernate:
 #      ddl-auto: create

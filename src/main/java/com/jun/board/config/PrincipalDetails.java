@@ -1,6 +1,6 @@
 package com.jun.board.config;
 
-import com.jun.board.User.Member;
+import com.jun.board.member.Member;
 import java.util.Collection;
 import java.util.Map;
 import org.springframework.security.core.GrantedAuthority;

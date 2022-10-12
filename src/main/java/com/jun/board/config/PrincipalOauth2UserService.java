@@ -1,7 +1,7 @@
 package com.jun.board.config;
 
-import com.jun.board.User.Member;
-import com.jun.board.User.UserRepository;
+import com.jun.board.member.Member;
+import com.jun.board.member.MemberRepository;
 import java.util.Map;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
-    private final UserRepository userRepository;
+    private final MemberRepository memberRepository;
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
@@ -25,7 +25,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
         String email = (String) attributes.get("email");
         String name = (String) attributes.get("name");
         String seq = (String) attributes.get("sub");
-        Optional<Member> optionalUser = userRepository.findUserByEmail(email);
+        Optional<Member> optionalUser = memberRepository.findUserByEmail(email);
         Member member;
         System.out.println("oAuth2User = " + oAuth2User.getAttributes());
         System.out.println("userRequest = " + userRequest.getClientRegistration());
@@ -35,7 +35,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
                     .name(name)
                     .build();
 
-            userRepository.save(member);
+            memberRepository.save(member);
         } else {
             member = optionalUser.get();
         }
