@@ -4,5 +4,19 @@ spring:
       enabled: true
 
   datasource:
-    url: jdbc:h2:mem:testdb
     driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 430441076561-0vdjt8gpd5aau0p9dtka2qfngv2ime81.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
