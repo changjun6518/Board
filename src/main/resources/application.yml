@@ -11,12 +11,20 @@ spring:
       client:
         registration:
           google:
-            client-id: 430441076561-0vdjt8gpd5aau0p9dtka2qfngv2ime81.apps.googleusercontent.com
-            client-secret: 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
+            client-id: 430441076561-70flabc0u3rmnsh80422ep3kantfd2vt.apps.googleusercontent.com
+            client-secret: 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
             scope:
               - email
               - profile
-
+  mvc:
+    static-path-pattern: "/static/**"
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+  devtools:
+    restart:
+      enabled: false
 #  jpa:
 #    hibernate:
 #      ddl-auto: create

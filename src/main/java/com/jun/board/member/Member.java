@@ -1,4 +1,4 @@
-package com.jun.board.User;
+package com.jun.board.member;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
