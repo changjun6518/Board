@@ -16,8 +16,7 @@ spring:
             scope:
               - email
               - profile
-  mvc:
-    static-path-pattern: "/static/**"
+
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html

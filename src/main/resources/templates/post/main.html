@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+  <!-- Begin Page Content -->
+  <table id="userTable" th:class="table">
+    <thead th:class="thead-dark">
+    <tr>
+      <th th:width="200">id</th>
+      <th th:width="200">title</th>
+      <th th:width="200">description</th>
+      <th>수정</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${postList}">
+      <td th:text="${post.id}">id</td>
+      <td th:text="${post.title}">title</td>
+      <td th:text="${post.description}">description</td>
+      <td><button type="submit" th:class="btn"><a th:href="@{post/{id}(id=${post.id})}">수정버튼!</a></button> </td>
+    </tr>
+    </tbody>
+  </table>
+
+</th:block>
+</html>

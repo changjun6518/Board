@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+
+<th:block layout:fragment="content">
+  <!-- Begin Page Content -->
+  <table id="userTable" th:class="table">
+    <thead th:class="thead-dark">
+    <tr>
+      <th th:width="200">id</th>
+      <th th:width="200">title</th>
+      <th th:width="200">description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td th:text="${post.id}">id</td>
+      <td th:text="${post.title}">title</td>
+      <td th:text="${post.description}">description</td>
+    </tr>
+    </tbody>
+  </table>
+  <button type="submit" th:class="btn">수정완료</button>
+</th:block>
+</html>
