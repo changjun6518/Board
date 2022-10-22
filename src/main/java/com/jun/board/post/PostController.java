@@ -2,17 +2,13 @@ package com.jun.board.post;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -40,13 +36,27 @@ public class PostController {
         return modelAndView;
     }
 
+    @PostMapping("")
+    public ModelAndView createPost(PostCreateDto postCreateDto) {
+        postService.create(postCreateDto);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/post");
+        return modelAndView;
+    }
+
     @PutMapping("")
-    public void updatePost(@RequestBody PostUpdateDto postUpdateDto) {
+    public ModelAndView updatePost(PostUpdateDto postUpdateDto) {
         postService.update(postUpdateDto);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/post");
+        return modelAndView;
     }
 
     @DeleteMapping("")
-    public void deletePost(@RequestParam Long postId) {
-        postService.delete(postId);
+    public ModelAndView deletePost(Long id) {
+        postService.delete(id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/post");
+        return modelAndView;
     }
 }

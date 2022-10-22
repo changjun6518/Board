@@ -5,22 +5,19 @@
 
 <th:block layout:fragment="content">
   <!-- Begin Page Content -->
-  <table id="userTable" th:class="table">
-    <thead th:class="thead-dark">
-    <tr>
-      <th th:width="200">id</th>
-      <th th:width="200">title</th>
-      <th th:width="200">description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td th:text="${post.id}">id</td>
-      <td th:text="${post.title}">title</td>
-      <td th:text="${post.description}">description</td>
-    </tr>
-    </tbody>
-  </table>
-  <button type="submit" th:class="btn">수정완료</button>
+  <form action="#" th:action="@{/post}" method="#" th:method="put">
+    <input type="hidden" th:name="id" th:value="${post.id}">
+    <label for="title">제목</label>
+      <input type="text" id="title" th:name="title" th:value="${post.title}">
+    <label for="description">설명</label>
+    <input type="text" id="description" th:name="description" th:value="${post.description}">
+<!--    <button type="submit">수정</button>-->
+    <input type="submit">
+  </form>
+
+  <form th:action="@{/post}" th:method="delete">
+    <input type="hidden" th:name="id" th:value="${post.id}">
+    <button type="submit">삭제</button>
+  </form>
 </th:block>
 </html>

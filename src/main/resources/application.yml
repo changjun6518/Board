@@ -16,7 +16,10 @@ spring:
             scope:
               - email
               - profile
-
+  mvc:
+    hidden-method:
+      filter:
+        enabled: true
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
