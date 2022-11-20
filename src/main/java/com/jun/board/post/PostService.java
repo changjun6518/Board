@@ -40,4 +40,9 @@ public class PostService {
         Post post = postRepository.findById(postId).orElseThrow();
         postRepository.delete(post);
     }
+
+    public PostReadDto getPostById(Long id) {
+        Post post = postRepository.findById(id).orElseThrow();
+        return new PostReadDto(post.getId(), post.getTitle(), post.getDescription());
+    }
 }

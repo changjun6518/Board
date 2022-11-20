@@ -17,7 +17,9 @@ spring:
               - email
               - profile
   mvc:
-    static-path-pattern: "/static/**"
+    hidden-method:
+      filter:
+        enabled: true
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
