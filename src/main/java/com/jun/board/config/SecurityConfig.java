@@ -22,7 +22,8 @@ public class SecurityConfig {
         http.headers().frameOptions().sameOrigin(); //x-frame-options 동일 출처일경우만
 
         http.authorizeRequests()
-                .antMatchers("/h2/**").permitAll(); //h2 URI에 대한 권한 허가
+                .antMatchers("/h2/**").permitAll() //h2 URI에 대한 권한 허가
+                .anyRequest().authenticated();
         http.oauth2Login()
                 .userInfoEndpoint()
                 .userService(principalOauth2UserService);
